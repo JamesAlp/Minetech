@@ -1,5 +1,5 @@
 {
-  "base": "https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/cc-scripts/",
+  "base": "https://raw.githubusercontent.com/JamesAlp/minetech/master/cc-scripts/",
   "files": [
     "ingest.lua",
     "config.lua"
