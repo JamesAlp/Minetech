@@ -1,31 +1,31 @@
 import { ConflictException, Injectable, InternalServerErrorException } from '@nestjs/common';
 import CreateModDto from './dto/create-item.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { ModEntity } from './item.entity';
+import { ItemEntity } from './item.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()
 export class ModService {
   constructor(
-    @InjectRepository(ModEntity)
-    private modRepository: Repository<ModEntity>
+    @InjectRepository(ItemEntity)
+    private modRepository: Repository<ItemEntity>
   ) {}
 
-  async create(dto: string): Promise<ModEntity> {
-    const entity = this.modRepository.create({ ...dto });
-    try {
-      return await this.modRepository.save(entity);
-    }
-    catch (error) {
-      console.error('Error: ', error);
-      if (error.code === 'ER_DUP_ENTRY') {
-        throw new ConflictException('Mod name already exists.')
-      }
-      throw new InternalServerErrorException();
-    }
+  async create(dto: string) {
+    // const entity = this.modRepository.create({ ...dto });
+    // try {
+    //   return await this.modRepository.save(entity);
+    // }
+    // catch (error) {
+    //   console.error('Error: ', error);
+    //   if (error.code === 'ER_DUP_ENTRY') {
+    //     throw new ConflictException('Mod name already exists.')
+    //   }
+    //   throw new InternalServerErrorException();
+    // }
   }
 
-  async find(): Promise<ModEntity[]> {
+  async find(): Promise<ItemEntity[]> {
     try {
       return await this.modRepository.find();
     }
@@ -35,7 +35,7 @@ export class ModService {
     }
   }
 
-  async findOne(name: string): Promise<ModEntity> {
+  async findOne(name: string): Promise<ItemEntity> {
     return await this.modRepository.findOneBy({ name: name });
   }
 }

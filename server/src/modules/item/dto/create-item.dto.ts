@@ -1,5 +1,5 @@
-import { ModEntity } from "../item.entity";
+import { ItemEntity } from "../item.entity";
 
-type CreateModDto = Pick<ModEntity, 'name'>;
+type CreateModDto = Pick<ItemEntity, 'name'>;
 
 export default CreateModDto;
