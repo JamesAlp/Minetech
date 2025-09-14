@@ -2,6 +2,7 @@
   "base": "https://raw.githubusercontent.com/JamesAlp/minetech/master/cc-scripts/",
   "files": [
     "ingest.lua",
-    "config.lua"
+    "config.lua",
+    "monitor_dynamic.lua"
   ]
 }
